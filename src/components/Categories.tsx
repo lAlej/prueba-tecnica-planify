@@ -41,7 +41,7 @@ export const Categories: React.FC<Props> = ({ index, tabValue }) => {
 
   useEffect(() => {
     const callCategories = async () => {
-      const services = await fetch("./api/services.json");
+      const services = await fetch("../../api/services.json");
       const data = await services.json();
 
       perCategory(data.services);

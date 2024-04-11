@@ -55,7 +55,7 @@ export const Slots: React.FC<Props> = ({
 
   React.useEffect(() => {
     const callDates = async () => {
-      const slots = await fetch("./api/slots.json");
+      const slots = await fetch("../../api/services.json");
       const data = await slots.json();
 
       setSlots(data);
