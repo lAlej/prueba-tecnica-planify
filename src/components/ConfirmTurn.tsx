@@ -1,6 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
+import { SelectorStore } from "../types";
 
 interface Props {
   index: number;
@@ -11,7 +12,7 @@ export const ConfirnTurn: React.FC<Props> = ({
   index,
   tabValue,
 }) => {
-  const { service, slot } = useSelector((state) => state.dateInfo);
+  const { service, slot } = useSelector((state: SelectorStore) => state.dateInfo);
   return (
     <Grid
       style={{

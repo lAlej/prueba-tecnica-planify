@@ -10,9 +10,8 @@ import { Grid, Typography, Button } from "@mui/material";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 
 import { useSelector, useDispatch } from "react-redux";
-import { Service, Services } from "../types";
+import { SelectorStore, Service, Services } from "../types";
 import { addService } from "../app/dateService";
-
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -22,30 +21,29 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
+  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
+  marginLeft: "auto",
+  transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.shortest,
   }),
 }));
 
-interface Props{
-  specs: Services
+interface Props {
+  specs: Services;
 }
-
-export const Category: React.FC<Props>= ({ specs }) => {
-
+export const Category: React.FC<Props> = ({ specs }) => {
   const dispath = useDispatch();
-  const service = useSelector((state) => state.dateInfo.service);
+  const service = useSelector((state: SelectorStore) => state.dateInfo.service);
 
   const [expanded, setExpanded] = React.useState(false);
+
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   const setService = (item: Service) => {
-    console.log(item);
+    
     if (service.name === item.name) {
       return dispath(addService(""));
     }
@@ -70,8 +68,8 @@ export const Category: React.FC<Props>= ({ specs }) => {
   };
 
   return (
-    <Grid item xs={12} style={{ margin: "5px 0"}}>
-      <Card style={{boxShadow: "none"}}>
+    <Grid item xs={12} style={{ margin: "5px 0" }}>
+      <Card style={{ boxShadow: "none" }}>
         <CardActions disableSpacing sx={{ height: 20 }}>
           <CardHeader title={specs[0].category} />
           <ExpandMore
@@ -117,4 +115,4 @@ export const Category: React.FC<Props>= ({ specs }) => {
       </Card>
     </Grid>
   );
-}
+};

@@ -3,7 +3,7 @@ import { dateSetter } from "../customFunctions/datesSetter";
 
 import { useSelector, useDispatch } from "react-redux";
 import { addSlot } from "../app/dateService";
-import { DateSlots } from "../types";
+import { DateSlots, SelectorStore } from "../types";
 import { Button, Grid, Typography } from "@mui/material";
 
 interface Props {
@@ -16,7 +16,7 @@ export const Slots: React.FC<Props> = ({
   tabValue
 }) => {
   const dispath = useDispatch();
-  const slotDate = useSelector((state) => state.dateInfo.slot);
+  const slotDate = useSelector((state: SelectorStore) => state.dateInfo.slot);
 
   const [slots, setSlots] = React.useState<DateSlots>();
   const [loaded, setLoaded] = React.useState(false);

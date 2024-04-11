@@ -1,8 +1,7 @@
 import React from "react";
-import { Button, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { typeCategories, Services } from "../types";
-import { useSelector } from "react-redux";
 import {Category} from "./Category";
 
 interface Props {
@@ -11,7 +10,6 @@ interface Props {
 }
 
 export const Categories: React.FC<Props> = ({ index, tabValue }) => {
-  const service = useSelector((state) => state.dateInfo.service);
 
 
   const [categories, setCategories] = React.useState<typeCategories>({});

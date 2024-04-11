@@ -13,6 +13,16 @@ export type DateSlots = {
   availableTimeslots:[]
 }
 
+export interface SelectorStore {
+  dateInfo: {
+    service: Service,
+    slot: {
+      date: string,
+      time: string
+    }
+  }
+}
+
 export type Services = Service[]
 
 export type typeCategories = {[key:string]: Services}
