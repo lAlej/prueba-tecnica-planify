@@ -1,12 +1,11 @@
-export const dateSetter = (date) => {
+export const dateSetter = (date: string): string => {
   const splitter = date.split("-");
 
   const fecha = new Date(date);
-  const options = {
+  const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
-    day: "numeric",
-    locale: "es-ES",
+    day: "numeric"
   };
   const resul = fecha.toLocaleDateString(undefined, options);
 
