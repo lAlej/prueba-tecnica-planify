@@ -41,7 +41,7 @@ export const Categories: React.FC<Props> = ({ index, tabValue }) => {
 
   useEffect(() => {
     const callCategories = async () => {
-      const services = await fetch("../../api/services.json");
+      const services = await fetch("./api/services.json");
       const data = await services.json();
 
       perCategory(data.services);
@@ -61,7 +61,7 @@ export const Categories: React.FC<Props> = ({ index, tabValue }) => {
       }}
       hidden={tabValue !== index}
     >
-      <Typography style={{ padding: "5px 2px" }}>Categorias</Typography>
+      <Typography style={{ padding: "5px 2px", margin: "0 20px" }}>Categorias</Typography>
       {loaded && renderCategories()}
       
     </Grid>
